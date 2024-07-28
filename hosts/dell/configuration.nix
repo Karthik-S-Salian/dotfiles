@@ -79,24 +79,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    waybar
-    libnotify
-    swww
-    wl-clipboard
-    kitty
-    rofi-wayland
-    networkmanagerapplet
-    wlogout
-    pavucontrol
-    killall
-    swaynotificationcenter
-    cliphist
-    brightnessctl
-    playerctl
-    hyprcursor
-    xwaylandvideobridge
-    hyprshot
-
     libinput #to disable keyboard
 
     fastfetch
@@ -104,7 +86,6 @@
     cava
 
     vim
-    git
     fzf
     zoxide
     vscode
@@ -187,6 +168,7 @@
     fira-code-symbols
     font-awesome
     (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
+    navilu-font
   ];
 
 

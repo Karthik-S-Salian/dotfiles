@@ -12,6 +12,7 @@ in
 
   # Import Program Configurations
   imports = [
+    ./config/hypr
     ./config/emoji.nix
   ];
 
