@@ -11,9 +11,7 @@ in
 
   # Import Program Configurations
   imports = [
-    ./config/hypr
-    ./config/emoji.nix
-    ./config/rofi
+    ./config
     ./scripts
   ];
 
