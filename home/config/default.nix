@@ -5,6 +5,7 @@
     ./hypr
     ./emoji.nix
     ./rofi
+    ./cava
   ];
 
   home.file.".config/fastfetch" = {
