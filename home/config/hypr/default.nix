@@ -11,7 +11,6 @@
     swww
     wl-clipboard
     kitty
-    rofi-wayland
     networkmanagerapplet
     wlogout
     pavucontrol
@@ -68,11 +67,16 @@
         # Autostart
         exec-once = wl-paste  --watch cliphist store
         #need to be changed
-        exec-once=bash ~/.config/hypr/start.sh
+        #exec-once=bash ~/.config/hypr/start.sh
 
         #exec-once = hyprctl setcursor Bibata-Modern-Classic 24
 
-    
+        exec-once = killall -q swww;sleep .5 && swww-daemon --format xrgb
+        exec-once = killall -q waybar;sleep .5 && waybar
+        exec-once = killall -q swaync;sleep .5 && swaync
+        exec-once = nm-applet --indicator
+        exec-once = sleep 1.5 && swww img ~/test2.jpg $effect
+        
         #look and feel
         general { 
           gaps_in = 1
@@ -266,7 +270,7 @@
 
         bind = SUPER, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy
 
-        bind = SUPER, ., exec, $emojipicker
+        bind = SUPER,., exec, $emojipicker
 
 
         ### WINDOWS AND WORKSPACES ###

@@ -3,7 +3,6 @@ let
   inherit (import ../modules/variables.nix) gitUsername gitEmail;
 in
 
-
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -14,6 +13,8 @@ in
   imports = [
     ./config/hypr
     ./config/emoji.nix
+    ./config/rofi
+    ./scripts
   ];
 
   # This value determines the Home Manager release that your configuration is
