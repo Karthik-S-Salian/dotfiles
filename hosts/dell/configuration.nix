@@ -51,11 +51,11 @@
     xkb.variant = "";
   };
 
-  #services.xserver.enable = true;
-  #services.xserver.displayManager.sddm = {
-  #enable = true;
-  #wayland.enable = true;
-  #}; 
+  services.xserver.enable = true;
+  services.xserver.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.karthikssalian = {
@@ -66,7 +66,7 @@
     packages = with pkgs; [
       google-chrome
       discord
-      nodejs_22
+      nodePackages.nodejs
       nodePackages.pnpm
     ];
   };

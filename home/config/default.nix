@@ -17,4 +17,14 @@
     source = ./wlogout;
     recursive = true;
   };
+
+  home.file."" = {
+    source = ./zsh;
+    recursive = true;
+  };
+
+  home.file.".config/kitty" = {
+    source = ./kitty;
+    recursive = true;
+  };
 }
