@@ -18,13 +18,17 @@
     recursive = true;
   };
 
-  home.file."" = {
-    source = ./zsh;
-    recursive = true;
-  };
-
   home.file.".config/kitty" = {
     source = ./kitty;
     recursive = true;
+  };
+
+  #https://github.com/nix-community/home-manager/issues/3849
+  home.file."/.zshrc" = {
+    source = ./zsh/.zshrc;
+  };
+
+  home.file."/.p10k.zsh" = {
+    source = ./zsh/.p10k.zsh;
   };
 }

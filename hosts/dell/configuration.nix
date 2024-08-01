@@ -9,7 +9,7 @@
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ../../modules/start.nix
+      #../../modules/start.nix
       inputs.home-manager.nixosModules.default
     ];
 
@@ -52,7 +52,7 @@
   };
 
   services.xserver.enable = true;
-  services.xserver.displayManager.sddm = {
+  services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
   };
@@ -68,6 +68,7 @@
       discord
       nodePackages.nodejs
       nodePackages.pnpm
+      libreoffice
     ];
   };
 
