@@ -86,21 +86,6 @@ in
     userEmail = "${gitEmail}";
   };
 
-
-  # Create XDG Dirs
-  xdg = {
-    userDirs = {
-      enable = true;
-      createDirectories = true;
-    };
-  };
-
-  qt = {
-    enable = true;
-    style.name = "adwaita-dark";
-    platformTheme.name = "gtk3";
-  };
-
   home = {
     pointerCursor = {
       gtk.enable = true;
@@ -136,12 +121,9 @@ in
 
   };
 
-  programs.hyprlock = {
-    enable = true;
-  };
-
   services = {
     hypridle = {
+      enable = true;
       settings = {
         general = {
           after_sleep_cmd = "hyprctl dispatch dpms on";
