@@ -4,6 +4,8 @@ let
   wallpaper_random = pkgs.writeShellScriptBin "wallpaper_random" ''
     wallDIR="$HOME/Pictures/wallpapers"
 
+    FORMATS=("jpeg" "png" "gif" "pnm" "tga" "tiff" "webp" "bmp" "farbfeld" "jpg")
+
     FPS=60
     TYPE="any"
     DURATION=2
@@ -27,10 +29,28 @@ let
     swww query && swww img $RANDOM_PIC $SWWW_PARAMS
   '';
 
+  rofi_search = pkgs.writeShellScriptBin "rofi_search" ''
+  
+  rofi_config="$HOME/.config/rofi/config-search.rasi"
+      
+  # Kill Rofi if already running before execution
+  if pgrep -x "rofi" >/dev/null; then
+      pkill rofi
+      exit 0
+  fi
+
+  # Open rofi with a dmenu and pass the selected item to xdg-open for Google search
+  # & makes this command run in background
+  # this command is blocking
+  # https://stackoverflow.com/questions/77333067/why-does-xdg-open-block-on-command-line
+    rofi -dmenu -config "$rofi_config" -p "Search:" | xargs -I{} xdg-open "https://www.google.com/search?q={}" &
+  '';
 in
 
 {
-  home.packages = with pkgs; [ 
-    wallpaper_random 
-  ];
+  home.packages = with pkgs;
+    [
+      wallpaper_random
+      rofi_search
+    ];
 }

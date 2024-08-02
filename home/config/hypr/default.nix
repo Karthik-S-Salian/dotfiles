@@ -45,7 +45,6 @@
         env = HYPRCURSOR_SIZE,16
         env = HYPRCURSOR_THEME,Bibata-Modern-Classic
         env = HYPRSHOT_DIR, Pictures/screenshots
-        env = MOZ_ENABLE_WAYLAND, 1
 
         #some may be redundent need to be removed
         env = GDK_BACKEND, wayland, x11
@@ -188,10 +187,12 @@
         #}
 
 
+
         ### KEYBINDINGSS ###
         $mainMod = SUPER
 
         bind = $mainMod, RETURN, exec, $terminal
+        bind = $mainMod, T, exec, $terminal
         bind = $mainMod, Q, killactive,
         bind = $mainMod SHIFT, K, exit,
         bind = $mainMod, B, exec, firefox
@@ -202,6 +203,8 @@
         bind = $mainMod, P, pseudo, # dwindle
         bind = $mainMod, J, togglesplit, # dwindle
 
+        bind = $mainMod, S, exec, rofi_search # Google search from Rofi
+        bind = $mainMod, E, exec, $emojipicker
 
         # Move focus with mainMod + arrow keys
         bind = $mainMod, left, movefocus, l
@@ -269,8 +272,6 @@
         bind = $mainMod SHIFT, PRINT, exec, hyprshot -m region
 
         bind = SUPER, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy
-
-        bind = SUPER,., exec, $emojipicker
 
 
         ### WINDOWS AND WORKSPACES ###

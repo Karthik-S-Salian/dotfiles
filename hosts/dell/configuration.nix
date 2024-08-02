@@ -9,7 +9,7 @@
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      #../../modules/start.nix
+      ../../modules/start.nix
       inputs.home-manager.nixosModules.default
     ];
 
@@ -51,18 +51,17 @@
     xkb.variant = "";
   };
 
-  services.xserver.enable = true;
-  services.displayManager.sddm = {
-    enable = true;
-    wayland.enable = true;
-  };
+  # services.displayManager.sddm = {
+  #   enable = true;
+  #   wayland.enable = true;
+  # };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.karthikssalian = {
     isNormalUser = true;
     description = "Karthik S Salian";
     shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "input" ];
     packages = with pkgs; [
       google-chrome
       discord
@@ -93,6 +92,7 @@
 
     firefox
     cinnamon.nemo
+    cinnamon.nemo-fileroller
     vlc
     p7zip
     viewnior
@@ -134,8 +134,15 @@
 
   xdg.portal = {
     enable = true;
+    wlr.enable = true;
     extraPortals = [
+      pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal
+    ];
+    configPackages = [
+      pkgs.xdg-desktop-portal-gtk
       pkgs.xdg-desktop-portal-hyprland
+      pkgs.xdg-desktop-portal
     ];
   };
 

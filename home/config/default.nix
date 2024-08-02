@@ -23,6 +23,11 @@
     recursive = true;
   };
 
+  home.file.".config/swaync" = {
+    source = ./kitty;
+    recursive = true;
+  };
+
   #https://github.com/nix-community/home-manager/issues/3849
   home.file."/.zshrc" = {
     source = ./zsh/.zshrc;

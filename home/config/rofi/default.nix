@@ -3,6 +3,7 @@
 {
   imports = [
     ./config-emoji.nix
+    ./config-search.nix
   ];
 
   programs.rofi = {

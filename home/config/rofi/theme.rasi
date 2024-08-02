@@ -1,4 +1,14 @@
 /*****----- Configuration -----*****/
+
+* {
+    background:     #1E1F29DD;
+    background-alt: #282A36FF;
+    foreground:     #FFFFFFFF;
+    selected:       #BD93F9FF;
+    active:         #50FA7BFF;
+    urgent:         #FF5555FF;
+}
+
 configuration {
 	modi:                       "drun,run,filebrowser,window";
     show-icons:                 true;
@@ -11,16 +21,7 @@ configuration {
 }
 
 /*****----- Global Properties -----*****/
-/*@import                          "./colors/dracula.rasi"*/
-
-* {
-    background:     #1E1F29FF;
-    background-alt: #282A36FF;
-    foreground:     #FFFFFFFF;
-    selected:       #BD93F9FF;
-    active:         #50FA7BFF;
-    urgent:         #FF5555FF;
-}
+/* @import                          "./dracula.rasi" */
 
 * {
     border-colour:               var(selected);
@@ -268,6 +269,7 @@ button {
     background-color:            @alternate-background;
     text-color:                  inherit;
     cursor:                      pointer;
+    margin:                      10px 0px;
 }
 button selected {
     background-color:            var(selected-normal-background);
