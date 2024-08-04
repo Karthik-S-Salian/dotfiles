@@ -92,14 +92,16 @@
 
     firefox
     cinnamon.nemo
-    cinnamon.nemo-fileroller
     vlc
     p7zip
     viewnior
     obs-studio
 
     nixpkgs-fmt #for vscode nix formatter
+
   ];
+
+  programs.file-roller.enable = true;
 
   #services.udev.extraRules = ''
   #  KERNEL=="event*", ATTRS{name}=="AT Translated Set 2 keyboard", ENV{LIBINPUT_IGNORE_DEVICE}="1"
@@ -155,10 +157,7 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     jack.enable = true;
-    wireplumber = {
-      enable = true;
-      configPackages = [ ];
-    };
+    wireplumber.enable = true;
   };
 
   #for enabling trashbin
@@ -183,6 +182,7 @@
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
   services.blueman.enable = true;
+  
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
