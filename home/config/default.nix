@@ -24,7 +24,7 @@
   };
 
   home.file.".config/swaync" = {
-    source = ./kitty;
+    source = ./swaync;
     recursive = true;
   };
 
