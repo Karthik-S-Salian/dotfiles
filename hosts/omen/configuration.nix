@@ -49,7 +49,7 @@
   services.xserver = {
     xkb.layout = "us";
     xkb.variant = "";
-    videoDrivers = ["nvidia"];
+    videoDrivers = [ "nvidia" ];
   };
 
   # services.displayManager.sddm = {
@@ -65,7 +65,9 @@
     extraGroups = [ "networkmanager" "wheel" "input" ];
     packages = with pkgs; [
       google-chrome
-      discord
+      webcord
+      bun
+      gimp
       nodePackages.nodejs
       nodePackages.pnpm
       libreoffice
@@ -91,7 +93,7 @@
     zoxide
     vscode
 
-    grim 
+    grim
     slurp
 
     firefox
@@ -160,8 +162,7 @@
     wireplumber.enable = true;
   };
 
-  #for enabling trashbin
-  services.gvfs.enable = true;
+
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
@@ -170,19 +171,46 @@
     };
   };
 
-  fonts.packages = with pkgs; [
-    fira-code
-    fira-code-symbols
-    font-awesome
-    (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
-    navilu-font
-  ];
+  # fonts.packages = with pkgs; [
+  #   fira-code
+  #   fira-code-symbols
+  #   fira-sans
+
+  #   noto-fonts-cjk-sans
+  #   noto-fonts-cjk-serif
+  #   noto-fonts-color-emoji
+
+  #   (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
+  #   navilu-font
+
+  # ];
+
+  fonts = {
+    packages = with pkgs; [
+      noto-fonts-cjk-sans
+      noto-fonts-cjk-serif
+      noto-fonts-color-emoji
+
+      font-awesome
+
+      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+      navilu-font
+    ];
+
+    fontconfig = {
+      defaultFonts = {
+        serif = [ "Noto Sans CJK" "Navilu" ];
+        sansSerif = [ "Noto Serif CJK" "Navilu" ];
+        monospace = [ "JetBrainsMono Nerd Font Mono" ];
+      };
+    };
+  };
 
 
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
   services.blueman.enable = true;
-  
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -193,8 +221,20 @@
 
   # List services that you want to enable:
 
-  # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
+
+
+
+  services = {
+    # Enable the OpenSSH daemon.
+    openssh.enable = true;
+
+    #for enabling trashbin
+    gvfs.enable = true;
+
+    power-profiles-daemon.enable = true;
+
+    gnome.gnome-keyring.enable = true;
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

@@ -32,7 +32,7 @@
     # nvidiaPatches = true;
     extraConfig = ''
         # Monitor
-        monitor=,preferred,auto,1
+        monitor=DP-1,1920x1080@144,0x0,1.2  #DP-1,1920x1080@144,0x0,1 
 
         # Fix slow startup
         #hyprland screensharing fix
@@ -61,9 +61,7 @@
         $terminal = kitty
         $fileManager = nemo
         $menu = killall rofi || rofi -show drun -show-icons
-        $emojipicker = ~/config/hypr/scripts/emojipicker.sh
-
-
+  
         # Autostart
         exec-once = wl-paste  --watch cliphist store
         #need to be changed
@@ -75,7 +73,7 @@
         exec-once = killall -q waybar;sleep .5 && waybar
         exec-once = killall -q swaync;sleep .5 && swaync
         exec-once = nm-applet --indicator
-        exec-once = sleep 1.5 && swww img ~/test2.jpg $effect
+        #exec-once = sleep 1.5 && swww img ~/test2.jpg $effect
         
         #look and feel
         general { 
@@ -204,8 +202,8 @@
         bind = $mainMod, P, pseudo, # dwindle
         bind = $mainMod, J, togglesplit, # dwindle
 
-        bind = $mainMod, S, exec, rofi_search # Google search from Rofi
-        bind = $mainMod, E, exec, $emojipicker
+        #bind = $mainMod, S, exec, rofi_search # Google search from Rofi
+        bind = $mainMod, E, exec, emojipicker
 
         # Move focus with mainMod + arrow keys
         bind = $mainMod, left, movefocus, l

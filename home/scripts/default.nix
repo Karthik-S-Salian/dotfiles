@@ -45,6 +45,17 @@ let
   # https://stackoverflow.com/questions/77333067/why-does-xdg-open-block-on-command-line
     rofi -dmenu -config "$rofi_config" -p "Search:" | xargs -I{} xdg-open "https://www.google.com/search?q={}" &
   '';
+
+  emojipicker = pkgs.writeShellScriptBin "emojipicker" ''
+        # Get user selection via wofi from emoji file.
+        chosen= $(cat ~/.config/.emoji | ${pkgs.rofi-wayland}/bin/rofi -i -dmenu -config ~/.config/rofi/config-emoji.rasi | awk '{print $1}')
+
+        # Exit if none chosen.
+        [ -z "$chosen" ] && exit
+        
+        ${pkgs.wl-clipboard}/bin/wl-copy $chosen
+        ${pkgs.libnotify}/bin/notify-send "'$chosen' copied to clipboard." &
+  '';
 in
 
 {
@@ -52,5 +63,6 @@ in
     [
       wallpaper_random
       rofi_search
+      emojipicker
     ];
 }
