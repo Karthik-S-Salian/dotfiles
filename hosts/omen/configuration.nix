@@ -52,10 +52,10 @@
     videoDrivers = [ "nvidia" ];
   };
 
-  # services.displayManager.sddm = {
-  #   enable = true;
-  #   wayland.enable = true;
-  # };
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.karthikssalian = {
@@ -105,6 +105,10 @@
 
     nixpkgs-fmt #for vscode nix formatter
 
+    sublime
+
+    nwg-look
+
   ];
 
   programs.file-roller.enable = true;
@@ -140,6 +144,7 @@
     #WLR_NO_HARDWARE_CURSORS = "1";
   };
 
+  # home-manager.backupFileExtension = "backup";
 
   xdg.portal = {
     enable = true;

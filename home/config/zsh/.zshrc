@@ -70,6 +70,8 @@ alias ls='ls --color'
 alias lsa='ls -a'
 # alias vim='nvim'
 alias c='clear'
+alias vsd='code ~/dotfiles && exit'
+
 
 
 # Shell integrations

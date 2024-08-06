@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 let
   inherit (import ../modules/variables.nix) gitUsername gitEmail;
 in
@@ -25,7 +25,7 @@ in
   home.stateVersion = "24.05"; # Please read the comment before changing.
 
   home.packages = with pkgs; [
-    gparted
+
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -78,10 +78,24 @@ in
     };
   };
 
-  xdg.mimeApps.defaultApplications = {
-    "application/pdf" = "firefox.desktop";
-    "image/png" = "viewnior.desktop";
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "application/xhtml+xml" = "firefox.desktop";
+      "text/html" = "firefox.desktop";
+      "text/xml" = "sublime.desktop";
+      "x-scheme-handler/ftp" = "firefox.desktop";
+      "x-scheme-handler/http" = "firefox.desktop";
+      "x-scheme-handler/https" = "firefox.desktop";
+      "application/pdf" = "firefox.desktop";
+      "image/png" = "viewnior.desktop";
+    };
   };
+
+  # home.sessionVariables = {
+  #   BROWSER = "${lib.getExe pkgs.firefox}";
+  #   TERMINAL = "${lib.getExe pkgs.kitty}";
+  # };
 
   gtk = {
     enable = true;
