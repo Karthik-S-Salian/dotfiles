@@ -88,7 +88,7 @@ in
       "x-scheme-handler/http" = "firefox.desktop";
       "x-scheme-handler/https" = "firefox.desktop";
       "application/pdf" = "firefox.desktop";
-      "image/png" = "viewnior.desktop";
+      "image/*" = "viewnior.desktop";
     };
   };
 
@@ -116,6 +116,13 @@ in
       gtk-application-prefer-dark-theme = 1;
     };
 
+  };
+
+  #solution for chrome and brave not detecting dark mode
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
   };
 
   services = {

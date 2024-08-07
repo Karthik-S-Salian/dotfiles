@@ -144,7 +144,7 @@
     #WLR_NO_HARDWARE_CURSORS = "1";
   };
 
-  # home-manager.backupFileExtension = "backup";
+  # home-manager.backupFileExtension = "bak";
 
   xdg.portal = {
     enable = true;
@@ -167,28 +167,12 @@
     wireplumber.enable = true;
   };
 
-
-
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     users = {
       "karthikssalian" = import ../../home/home.nix;
     };
   };
-
-  # fonts.packages = with pkgs; [
-  #   fira-code
-  #   fira-code-symbols
-  #   fira-sans
-
-  #   noto-fonts-cjk-sans
-  #   noto-fonts-cjk-serif
-  #   noto-fonts-color-emoji
-
-  #   (nerdfonts.override { fonts = [ "FiraCode" "JetBrainsMono" ]; })
-  #   navilu-font
-
-  # ];
 
   fonts = {
     packages = with pkgs; [
@@ -198,7 +182,7 @@
 
       font-awesome
 
-      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; }) #"FiraCode"
       navilu-font
     ];
 

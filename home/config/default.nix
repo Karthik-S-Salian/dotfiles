@@ -2,7 +2,7 @@
 
 {
   imports = [
-    #./hypr
+    ./hypr
     ./emoji.nix
     ./rofi
     ./cava
@@ -23,7 +23,7 @@
     brightnessctl
     playerctl
     hyprcursor
-    xwaylandvideobridge
+    # xwaylandvideobridge
     hyprshot
   ];
 
