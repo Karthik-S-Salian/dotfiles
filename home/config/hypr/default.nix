@@ -33,13 +33,6 @@
         # Monitor
         monitor=DP-1,1920x1080@144,0x0,1.2  #DP-1,1920x1080@144,0x0,1 
 
-        # Fix slow startup
-        #hyprland screensharing fix
-    
-        #exec-once = dbus-update-activation-environment --systemd --all
-        exec-once = systemctl --user import-environment  WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-        exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
-
         #env
         env = XCURSOR_SIZE,16
         env = HYPRCURSOR_SIZE,16
@@ -54,6 +47,15 @@
         env = QT_AUTO_SCREEN_SCALE_FACTOR, 1
         env = SDL_VIDEODRIVER, x11
 
+        
+        exec-once = hyprlock --immediate
+
+        # Fix slow startup
+        #hyprland screensharing fix
+        #exec-once = dbus-update-activation-environment --systemd --all
+        exec-once = systemctl --user import-environment  WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+        exec-once=dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+
         #variables
         $effect="--transition-bezier .43,1.19,1,.4 --transition-fps 30 --transition-type grow --transition-pos 0.925,0.977 --transition-duration 2"
 
@@ -62,6 +64,7 @@
         $menu = killall rofi || rofi -show drun -show-icons
   
         # Autostart
+        
         exec-once = wl-paste  --watch cliphist store
         #need to be changed
         #exec-once=bash ~/.config/hypr/start.sh

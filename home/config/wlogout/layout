@@ -1,6 +1,6 @@
 {
     "label" : "lock",
-    "action" : "pidof hyprlock || hyprlock -q",
+    "action" : "pidof hyprlock || hyprlock -q --immediate",
     "text" : "Lock",
     "keybind" : "l"
 }

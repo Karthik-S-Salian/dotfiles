@@ -65,8 +65,8 @@ in
 
   programs.git = {
     enable = true;
-    userName = "${gitUsername}";
-    userEmail = "${gitEmail}";
+    userName  = "Karthik-S-Salian";
+    userEmail = "karthikssalian5@gmail.com";
   };
 
   home = {
@@ -137,7 +137,7 @@ in
         listener = [
           {
             timeout = 900;
-            on-timeout = "hyprlock";
+            on-timeout = "hyprlock --immediate";
           }
           {
             timeout = 1200;

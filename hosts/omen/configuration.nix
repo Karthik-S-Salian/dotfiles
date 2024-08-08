@@ -70,7 +70,13 @@
       gimp
       nodePackages.nodejs
       nodePackages.pnpm
+      ffmpeg
       libreoffice
+      (python3.withPackages (ps: with ps; [
+        numpy
+        opencv4
+        jupyter
+      ]))
     ];
   };
 
