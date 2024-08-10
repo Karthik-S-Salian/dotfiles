@@ -114,14 +114,9 @@
     sublime
 
     nwg-look
-
   ];
 
   programs.file-roller.enable = true;
-
-  #services.udev.extraRules = ''
-  #  KERNEL=="event*", ATTRS{name}=="AT Translated Set 2 keyboard", ENV{LIBINPUT_IGNORE_DEVICE}="1"
-  #'';
 
   nix = {
     settings = {
@@ -161,7 +156,26 @@
   };
 
   hardware.graphics.enable = true;
-  hardware.nvidia.modesetting.enable = true;
+
+  #https://nixos.wiki/wiki/Nvidia
+  hardware.nvidia = {
+    modesetting.enable = true;
+    powerManagement.enable = false;
+    powerManagement.finegrained = true;
+
+    open = false;
+    nvidiaSettings = true;
+
+    prime = {
+      offload = {
+        enable = true;
+        enableOffloadCmd = true;
+      };
+      # Make sure to use the correct Bus ID values for your system!
+      intelBusId = "PCI:00:02:0";
+      nvidiaBusId = "PCI:01:00:0";
+    };
+  };
 
   security.rtkit.enable = true;
   services.pipewire = {
@@ -214,11 +228,6 @@
   #   enableSSHSupport = true;
   # };
 
-  # List services that you want to enable:
-
-
-
-
   services = {
     # Enable the OpenSSH daemon.
     openssh.enable = true;
@@ -229,6 +238,11 @@
     power-profiles-daemon.enable = true;
 
     gnome.gnome-keyring.enable = true;
+
+    ollama = {
+      enable = true;
+      acceleration = "cuda";
+    };
   };
 
   # Open ports in the firewall.

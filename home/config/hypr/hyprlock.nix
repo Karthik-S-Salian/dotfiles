@@ -11,18 +11,17 @@
         no_fade_in = false;
       };
 
-      background = [
-        {
-          color = "rgb(0, 0, 0, 0.5)";
-          path = "~/Pictures/wallpapers/Buildings.png";
-          blur_passes = 3;
-          blur_size = 8;
-          contrast = 0.8916;
-          brightness = 0.8172;
-          vibrancy = 0.1696;
-          vibrancy_darkness = 0.0;
-        }
-      ];
+      background = {
+        monitor = "";
+        color = "rgba(0, 0, 0, 0.5)";
+        path = "~/Pictures/wallpapers/Buildings.png";
+        blur_passes = 3;
+        blur_size = 8;
+        contrast = 0.8916;
+        brightness = 0.8172;
+        vibrancy = 0.1696;
+        vibrancy_darkness = 0.0;
+      };
 
       #   input-field = [
       #     {

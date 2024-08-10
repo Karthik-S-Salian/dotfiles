@@ -31,7 +31,7 @@
     systemd.enable = true;
     extraConfig = ''
         # Monitor
-        monitor=DP-1,1920x1080@144,0x0,1.2  #DP-1,1920x1080@144,0x0,1 
+        monitor=eDP-1,1920x1080@144,0x0,1  #DP-1,1920x1080@144,0x0,1 
 
         #env
         env = XCURSOR_SIZE,16
