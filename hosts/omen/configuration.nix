@@ -10,6 +10,7 @@
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../../modules/start.nix
+      ../../modules/game.nix
       inputs.home-manager.nixosModules.default
     ];
 
