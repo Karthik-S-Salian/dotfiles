@@ -7,10 +7,10 @@
 
   environment.systemPackages = with pkgs; [
     mangohud
-    protonup
+    # protonup
   ];
 
-  environment.sessionVariables = {
-    STEAM_EXTRA_COMPAT_TOOLS_PATHS = "home/karthikssalian/.steam/root/compatilibitytools.d";
-  };
+  # environment.sessionVariables = {
+  #   STEAM_EXTRA_COMPAT_TOOLS_PATHS = "home/karthikssalian/.steam/root/compatilibitytools.d";
+  # };
 }

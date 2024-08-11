@@ -53,10 +53,10 @@
     videoDrivers = [ "nvidia" ];
   };
 
-  services.displayManager.sddm = {
-    enable = true;
-    wayland.enable = true;
-  };
+  # services.displayManager.sddm = {
+  #   enable = true;
+  #   wayland.enable = true;
+  # };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.karthikssalian = {
@@ -156,7 +156,16 @@
     ];
   };
 
+  nixpkgs.config.packageOverrides = pkgs: {
+    intel-vaapi-driver = pkgs.intel-vaapi-driver.override { enableHybridCodec = true; };
+  };
+
   hardware.graphics.enable = true;
+  hardware.graphics.extraPackages = with pkgs; [
+    intel-media-driver # LIBVA_DRIVER_NAME=iHD
+    intel-vaapi-driver # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
+    libvdpau-va-gl
+  ];
 
   #https://nixos.wiki/wiki/Nvidia
   hardware.nvidia = {
@@ -229,6 +238,10 @@
   #   enableSSHSupport = true;
   # };
 
+  # Just set the console font, don't mess with the font settings
+  console.font = "${pkgs.terminus_font}/share/consolefonts/ter-v32n.psf.gz";
+  console.earlySetup = true;
+
   services = {
     # Enable the OpenSSH daemon.
     openssh.enable = true;
@@ -239,6 +252,8 @@
     power-profiles-daemon.enable = true;
 
     gnome.gnome-keyring.enable = true;
+
+    fstrim.enable = true;
 
     ollama = {
       enable = true;
