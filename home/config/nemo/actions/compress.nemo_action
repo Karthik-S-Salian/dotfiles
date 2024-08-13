@@ -1,0 +1,9 @@
+[Nemo Action]
+Active=true
+Name=Compress...
+Comment=Compress "%f"
+Exec=file-roller --add %F --default-dir=%P
+Icon-Name=gnome-mime-application-x-compress
+Selection=notnone
+Extensions=any;
+Quote=double

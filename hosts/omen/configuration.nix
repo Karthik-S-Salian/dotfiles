@@ -106,7 +106,6 @@
     slurp
 
     firefox
-    cinnamon.nemo
     vlc
     p7zip
     viewnior

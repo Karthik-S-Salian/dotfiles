@@ -72,7 +72,6 @@
           halign = center
           valign = center
       }
-    
     '';
   };
 }

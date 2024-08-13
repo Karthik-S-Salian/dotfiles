@@ -3,7 +3,6 @@
 {
   home = {
     sessionVariables = {
-    # EDITOR = "lvim";
     BROWSER = "firefox";
     TERMINAL = "kitty";
     # GBM_BACKEND= "nvidia-drm";

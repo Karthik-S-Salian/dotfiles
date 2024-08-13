@@ -6,6 +6,7 @@
     ./emoji.nix
     ./rofi
     ./cava
+    ./nemo
   ];
 
   home.file.".config/fastfetch" = {
