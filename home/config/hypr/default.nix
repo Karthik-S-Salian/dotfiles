@@ -15,13 +15,12 @@
     networkmanagerapplet
     wlogout
     pavucontrol
-    killall
     swaynotificationcenter
     cliphist
     brightnessctl
     playerctl
-    hyprcursor
-    xwaylandvideobridge
+    # hyprcursor
+    # xwaylandvideobridge
     hyprshot
   ];
 
@@ -34,8 +33,8 @@
         monitor=eDP-1,1920x1080@144,0x0,1  #DP-1,1920x1080@144,0x0,1 
 
         #env
-        env = XCURSOR_SIZE,16
-        env = HYPRCURSOR_SIZE,16
+        env = XCURSOR_SIZE,20
+        env = HYPRCURSOR_SIZE,20
         env = HYPRCURSOR_THEME,Bibata-Modern-Classic
         env = HYPRSHOT_DIR, Pictures/screenshots
 
@@ -47,7 +46,6 @@
         env = QT_AUTO_SCREEN_SCALE_FACTOR, 1
         env = SDL_VIDEODRIVER, x11
 
-        
         exec-once = hyprlock --immediate
 
         # Fix slow startup
@@ -61,7 +59,7 @@
 
         $terminal = kitty
         $fileManager = nemo
-        $menu = killall rofi || rofi -show drun -show-icons
+        $menu = pkill rofi || rofi -show drun -show-icons
   
         # Autostart
         
@@ -71,9 +69,9 @@
 
         #exec-once = hyprctl setcursor Bibata-Modern-Classic 24
 
-        exec-once = killall -q swww;sleep .5 && swww-daemon --format xrgb
-        exec-once = killall -q waybar;sleep .5 && waybar
-        exec-once = killall -q swaync;sleep .5 && swaync
+        exec-once = pkill -q swww;sleep .5 && swww-daemon --format xrgb
+        exec-once = pkill -q waybar;sleep .5 && waybar
+        exec-once = pkill -q swaync;sleep .5 && swaync
         exec-once = nm-applet --indicator
         #exec-once = sleep 1.5 && swww img ~/test2.jpg $effect
         

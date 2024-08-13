@@ -11,6 +11,7 @@
       ./hardware-configuration.nix
       ../../modules/start.nix
       ../../modules/game.nix
+      ../../modules/hardware-acceleration.nix
       inputs.home-manager.nixosModules.default
     ];
 
@@ -66,11 +67,12 @@
     extraGroups = [ "networkmanager" "wheel" "input" ];
     packages = with pkgs; [
       google-chrome
+      # discord
       webcord
       bun
       gimp
-      nodePackages.nodejs
-      nodePackages.pnpm
+      # nodePackages.nodejs
+      # nodePackages.pnpm
       ffmpeg
       libreoffice
       (python3.withPackages (ps: with ps; [
@@ -89,7 +91,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    libinput #to disable keyboard
+    libinput
 
     fastfetch
     btop
@@ -108,11 +110,12 @@
     vlc
     p7zip
     viewnior
+    evince
+    cosmic-edit
+
     obs-studio
 
     nixpkgs-fmt #for vscode nix formatter
-
-    sublime
 
     nwg-look
   ];
@@ -156,16 +159,7 @@
     ];
   };
 
-  nixpkgs.config.packageOverrides = pkgs: {
-    intel-vaapi-driver = pkgs.intel-vaapi-driver.override { enableHybridCodec = true; };
-  };
-
   hardware.graphics.enable = true;
-  hardware.graphics.extraPackages = with pkgs; [
-    intel-media-driver # LIBVA_DRIVER_NAME=iHD
-    intel-vaapi-driver # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
-    libvdpau-va-gl
-  ];
 
   #https://nixos.wiki/wiki/Nvidia
   hardware.nvidia = {
@@ -206,8 +200,10 @@
 
   fonts = {
     packages = with pkgs; [
-      noto-fonts-cjk-sans
-      noto-fonts-cjk-serif
+      # noto-fonts-cjk-sans
+      # noto-fonts-cjk-serif
+      ubuntu_font_family
+      liberation_ttf
       noto-fonts-color-emoji
 
       font-awesome
@@ -218,8 +214,10 @@
 
     fontconfig = {
       defaultFonts = {
-        serif = [ "Noto Sans CJK" "Navilu" ];
-        sansSerif = [ "Noto Serif CJK" "Navilu" ];
+        # serif = [ "Noto Sans CJK" "Navilu" ];
+        # sansSerif = [ "Noto Serif CJK" "Navilu" ];
+        serif = [ "Liberation Serif" "Navilu" ];
+        sansSerif = [ "Ubuntu" "Navilu" ];
         monospace = [ "JetBrainsMono Nerd Font Mono" ];
       };
     };
@@ -260,6 +258,14 @@
       acceleration = "cuda";
     };
   };
+
+
+  # qt = {
+  #   enable = true;
+  #   style = "adwaita-dark";
+  #   platformTheme = "gnome";
+  # };
+
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

@@ -8,25 +8,6 @@
     ./cava
   ];
 
-  home.packages = with pkgs; [
-    waybar
-    libnotify
-    swww
-    wl-clipboard
-    kitty
-    networkmanagerapplet
-    wlogout
-    pavucontrol
-    killall
-    swaynotificationcenter
-    cliphist
-    brightnessctl
-    playerctl
-    hyprcursor
-    # xwaylandvideobridge
-    hyprshot
-  ];
-
   home.file.".config/fastfetch" = {
     source = ./fastfetch;
     recursive = true;
