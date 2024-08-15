@@ -1,0 +1,8 @@
+[Nemo Action]
+Active=true
+Name=Open in kitty
+Comment=Open in kitty
+Exec=kitty %P
+Selection=none
+Extensions=any;
+Quote=double

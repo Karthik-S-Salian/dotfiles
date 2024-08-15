@@ -1,0 +1,8 @@
+[Nemo Action]
+Active=true
+Name=Open in vscode
+Comment=Open in vscode
+Exec=code %F
+Selection=notnone
+Extensions=any;
+Quote=double

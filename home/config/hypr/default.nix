@@ -19,6 +19,7 @@
     cliphist
     brightnessctl
     playerctl
+    killall
     # hyprcursor
     # xwaylandvideobridge
     hyprshot

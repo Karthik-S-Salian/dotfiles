@@ -43,7 +43,7 @@ let
   # & makes this command run in background
   # this command is blocking
   # https://stackoverflow.com/questions/77333067/why-does-xdg-open-block-on-command-line
-    rofi -dmenu -config "$rofi_config" -p "Search:" | xargs -I{} xdg-open "https://www.google.com/search?q={}" &
+    ${pkgs.rofi-wayland}/bin/rofi -dmenu -config "$rofi_config" -p "Search:" | xargs -I{} xdg-open "https://www.google.com/search?q={}" &
   '';
 
   emojipicker = pkgs.writeShellScriptBin "emojipicker" ''

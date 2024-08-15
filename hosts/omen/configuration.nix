@@ -217,7 +217,7 @@
         # sansSerif = [ "Noto Serif CJK" "Navilu" ];
         serif = [ "Liberation Serif" "Navilu" ];
         sansSerif = [ "Ubuntu" "Navilu" ];
-        monospace = [ "JetBrainsMono Nerd Font Mono" ];
+        monospace = [ "JetBrainsMono Nerd Font Mono" "Navilu" ];
       };
     };
   };
