@@ -13,13 +13,15 @@
     wl-clipboard
     kitty
     networkmanagerapplet
-    wlogout
+    grim
+    slurp
     pavucontrol
     swaynotificationcenter
     cliphist
     brightnessctl
     playerctl
     killall
+    # wlogout
     # hyprcursor
     # xwaylandvideobridge
     hyprshot

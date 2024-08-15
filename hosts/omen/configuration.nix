@@ -102,9 +102,6 @@
     zoxide
     vscode
 
-    grim
-    slurp
-
     firefox
     vlc
     p7zip

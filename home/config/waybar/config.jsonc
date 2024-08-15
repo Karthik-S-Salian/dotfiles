@@ -175,7 +175,7 @@
     },
     "custom/power": {
         "format": "⏻",
-        "on-click": "wlogout"
+        "on-click": "rofi_powermenu"
     },
     "idle_inhibitor": {
         "format": "{icon}",

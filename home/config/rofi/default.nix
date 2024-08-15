@@ -3,6 +3,7 @@
 {
   imports = [
     ./config-search.nix
+    ./powermenu.nix
   ];
 
   programs.rofi = {
