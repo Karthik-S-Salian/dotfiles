@@ -61,6 +61,8 @@
         $terminal = kitty
         $fileManager = nemo
         $menu = pkill rofi || rofi -show drun -show-icons
+        $emojipicker = rofi -show emoji
+        $calculator = rofi -show calc
   
         # Autostart
         
@@ -187,7 +189,6 @@
         #}
 
 
-
         ### KEYBINDINGSS ###
         $mainMod = SUPER
 
@@ -204,7 +205,8 @@
         bind = $mainMod, J, togglesplit, # dwindle
 
         #bind = $mainMod, S, exec, rofi_search # Google search from Rofi
-        bind = $mainMod, E, exec, emojipicker
+        bind = $mainMod, E, exec, $emojipicker
+        bind = $mainMod, C, exec, $calculator
 
         # Move focus with mainMod + arrow keys
         bind = $mainMod, left, movefocus, l

@@ -10,12 +10,12 @@
 }
 
 configuration {
-	modi:                       "drun,run,filebrowser,window";
+	modi:                       "drun,window,calc,emoji";
     show-icons:                 true;
     display-drun:               " Apps";
-    display-run:                " Run";
-    display-filebrowser:        " Files";
     display-window:             " Windows";
+    display-calc:                "🖩 Calc";
+    display-emoji:              "🚀 Emoji";
 	drun-display-format:        "{name}";
 	window-format:              "{w} · {c} · {t}";
 }

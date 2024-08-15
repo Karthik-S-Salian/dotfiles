@@ -3,7 +3,6 @@
 {
   imports = [
     ./hypr
-    ./emoji.nix
     ./rofi
     ./cava
     ./nemo
