@@ -148,7 +148,7 @@
     #WLR_NO_HARDWARE_CURSORS = "1";
   };
 
-  # home-manager.backupFileExtension = "bak";
+  home-manager.backupFileExtension = "bak";
 
   xdg.portal = {
     enable = true;

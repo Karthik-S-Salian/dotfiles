@@ -37,4 +37,8 @@
   home.file."/.p10k.zsh" = {
     source = ./zsh/.p10k.zsh;
   };
+
+  home.file.".config/waybar" = {
+    source = ./waybar;
+  };
 }
