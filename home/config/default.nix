@@ -13,6 +13,10 @@
     recursive = true;
   };
 
+  home.file."Pictures/wallpapers/windy_day.jpg" = {
+    source = ../wallpapers/windy_day.jpg;
+  };
+
   home.file.".config/kitty" = {
     source = ./kitty;
     recursive = true;
