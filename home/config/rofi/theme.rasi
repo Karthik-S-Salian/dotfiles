@@ -1,11 +1,12 @@
 /*****----- Configuration -----*****/
 
 * {
-    background:     #1E1F29DD;
+    font:           "JetBrains Mono Nerd Font 12";
+    background:     #1E1F29FA;
     background-alt: #282A36FF;
     foreground:     #FFFFFFFF;
-    selected:       #BD93F9FF;
-    active:         #50FA7BFF;
+    selected:       #32a3adFF;
+    active:         #f4ceaaFF;
     urgent:         #FF5555FF;
 }
 
@@ -198,7 +199,7 @@ element {
     cursor:                      pointer;
 }
 element normal.normal {
-    background-color:            var(normal-background);
+    /*background-color:            var(normal-background);*/
     text-color:                  var(normal-foreground);
 }
 element normal.urgent {
@@ -221,6 +222,8 @@ element selected.active {
     background-color:            var(selected-active-background);
     text-color:                  var(selected-active-foreground);
 }
+
+/*
 element alternate.normal {
     background-color:            var(alternate-normal-background);
     text-color:                  var(alternate-normal-foreground);
@@ -233,6 +236,8 @@ element alternate.active {
     background-color:            var(alternate-active-background);
     text-color:                  var(alternate-active-foreground);
 }
+*/
+
 element-icon {
     background-color:            transparent;
     text-color:                  inherit;

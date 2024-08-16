@@ -89,6 +89,16 @@ in
           urgent:                      #8E3596;
       }
 
+    * {
+        font:                        "JetBrains Mono Nerd Font 12";
+        background:     #1E1F29FA;
+        background-alt: #282A36FF;
+        foreground:     #FFFFFFFF;
+        selected:       #32a3adFF;
+        active:         #f4ceaaFF;
+        urgent:         #FF5555FF;
+    }
+
 
       /*****----- Main Window -----*****/
       window {
@@ -127,7 +137,7 @@ in
           spacing:                     20px;
           padding:                     100px 40px;
           background-color:            transparent;
-          background-image:            url("~/Pictures/wallpapers/windy_day.jpg", width);
+          background-image:            url("/home/karthikssalian/Pictures/wallpapers/Fantasy-Landscape3.png", width);
           children:                    [ "textbox-prompt-colon", "prompt"];
       }
 
