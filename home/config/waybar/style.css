@@ -69,14 +69,6 @@ tooltip label {
 	background: #C9CBFF;
 }
 
-#custom-updates {
-	background: #E8A2AF;
-}
-
-#custom-media {
-	background: #F2CDCD;
-}
-
 #tray {
 	color: #B5E8E0;
 	background: #161320;
@@ -106,8 +98,7 @@ tooltip label {
 }
 
 #power-profiles-daemon {
-	/* background: #ff9ad7; */
-	background:rgb(246, 231, 255);
+	background:#f6e7ff;
 }
 
 #power-profiles-daemon.performance {
@@ -238,3 +229,9 @@ tooltip label {
 }
 
 /* **************************************** */
+
+/* #extra {
+	background: #ff9ad7;
+	background: #F2CDCD;
+	background: #E8A2AF;
+} */

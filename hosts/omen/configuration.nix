@@ -97,6 +97,8 @@
     btop
     cava
 
+    # wallust
+
     vim
     fzf
     zoxide

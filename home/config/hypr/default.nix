@@ -23,7 +23,7 @@
     killall
     # wlogout
     # hyprcursor
-    # xwaylandvideobridge
+    xwaylandvideobridge
     hyprshot
   ];
 
@@ -165,8 +165,9 @@
             kb_layout = us
             kb_variant =
             kb_model =
-            kb_options =
             kb_rules =
+  
+            # kb_options = ctrl:nocaps
 
             follow_mouse = 2
 
@@ -194,6 +195,7 @@
         ### KEYBINDINGSS ###
         $mainMod = SUPER
 
+        bindr= $mainMod,Super_L, exec,$menu
         bind = $mainMod, RETURN, exec, $terminal
         bind = $mainMod, T, exec, $terminal
         bind = $mainMod, Q, killactive,
@@ -201,8 +203,7 @@
         bind = $mainMod, B, exec, firefox
         bind = $mainMod, F, exec, $fileManager
         bind = $mainMod, M,fullscreen,
-        bind = $mainMod SHIFT, M, togglefloating,
-        bindr= $mainMod,Super_L, exec,$menu
+        bind = $mainMod SHIFT, M, togglefloating
         bind = $mainMod, P, pseudo, # dwindle
         bind = $mainMod, J, togglesplit, # dwindle
 
@@ -258,7 +259,7 @@
         bind = ALT,Tab,cyclenext
         bind = ALT,Tab,bringactivetotop
         bind = $mainMod, TAB, workspace, e+1
-        #bind = SUPER,Tab,bringactivetotop,
+        #bind = $mainMod,Tab,bringactivetotop,
 
         bind = ,XF86AudioRaiseVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
         bind = ,XF86AudioLowerVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
@@ -275,7 +276,7 @@
         bind = , PRINT, exec, hyprshot -m output
         bind = $mainMod SHIFT, PRINT, exec, hyprshot -m region
 
-        bind = SUPER, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy
+        bind = $mainMod, V, exec, cliphist list | rofi -dmenu | cliphist decode | wl-copy
 
 
         ### WINDOWS AND WORKSPACES ###
