@@ -1,5 +1,5 @@
 {
-  # Git Configuration ( For Pulling Software Repos )
+  # Git Configurations
   gitUsername = "Karthik-S-Salian";
   gitEmail = "karthikssalian5@gmail.com";
 }
