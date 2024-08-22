@@ -9,6 +9,11 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+
+  # Configure network proxy if necessary
+  # networking.proxy.default = "http://user:password@proxy:port/";
+  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
@@ -38,7 +43,10 @@
     xkb.variant = "";
   };
 
-  programs.file-roller.enable = true;
+  # services.displayManager.sddm = {
+  #   enable = true;
+  #   wayland.enable = true;
+  # };
 
   environment.systemPackages = with pkgs; [
     git
@@ -59,31 +67,22 @@
     p7zip
     viewnior
     obs-studio
+    evince
+    cosmic-edit
 
     nixpkgs-fmt #for vscode nix formatter
 
+    nwg-look
+
     webcord
   ];
-
-  nix = {
-    settings = {
-      auto-optimise-store = true;
-      experimental-features = [
-        "nix-command"
-        "flakes"
-      ];
-    };
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 7d";
-    };
-  };
 
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
   };
+
+  programs.file-roller.enable = true;
 
   security.pam.services.hyprlock = { };
 
@@ -99,16 +98,6 @@
     extraPortals = [
       pkgs.xdg-desktop-portal-hyprland
       pkgs.xdg-desktop-portal-gtk
-    ];
-  };
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.karthikssalian = {
-    isNormalUser = true;
-    description = "Karthik S Salian";
-    shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" "input" ];
-    packages = with pkgs; [
     ];
   };
 
@@ -156,6 +145,28 @@
     gnome.gnome-keyring.enable = true;
 
     fstrim.enable = true;
+  };
+
+  # qt = {
+  #   enable = true;
+  #   style = "adwaita-dark";
+  #   platformTheme = "gnome";
+  # };
+
+
+  nix = {
+    settings = {
+      auto-optimise-store = true;
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+    };
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
+    };
   };
 
   # Open ports in the firewall.

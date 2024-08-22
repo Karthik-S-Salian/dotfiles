@@ -23,6 +23,16 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users.karthikssalian = {
+    isNormalUser = true;
+    description = "Karthik S Salian";
+    shell = pkgs.zsh;
+    extraGroups = [ "networkmanager" "wheel" "input" ];
+    packages = with pkgs; [
+    ];
+  };
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
