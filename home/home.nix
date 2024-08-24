@@ -9,43 +9,11 @@ in
   home.username = "karthikssalian";
   home.homeDirectory = "/home/karthikssalian";
 
-  # Import Program Configurations
   imports = [
     ./config
     ./scripts
   ];
 
-  # Home Manager is pretty good at managing dotfiles. The primary way to manage
-  # plain files is through 'home.file'.
-  home.file = {
-    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-    # # symlink to the Nix store copy.
-    # ".screenrc".source = dotfiles/screenrc;
-
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
-  };
-
-  # Home Manager can also manage your environment variables through
-  # 'home.sessionVariables'. These will be explicitly sourced when using a
-  # shell provided by Home Manager. If you don't want to manage your shell
-  # through Home Manager then you have to manually source 'hm-session-vars.sh'
-  # located at either
-  #
-  #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh
-  #
-  # or
-  #
-  #  /etc/profiles/per-user/karthikssalian/etc/profile.d/hm-session-vars.sh
-  #
   # home.sessionVariables = {
   #   EDITOR = "emacs";
   #   BROWSER = "${lib.getExe pkgs.firefox}";
@@ -63,7 +31,7 @@ in
       gtk.enable = true;
       package = pkgs.bibata-cursors;
       name = "Bibata-Modern-Classic";
-      size = 20;
+      size = 24;
     };
   };
 
@@ -91,7 +59,7 @@ in
       "image/gif" = "viewnior.desktop";
       "image/svg+xml" = "viewnior.desktop";
       "text/plain" = "com.system76.CosmicEdit.desktop";
-      "application/octet-stream" = "code.desktop";
+      # "application/octet-stream" = "code.desktop";
     };
   };
 
@@ -124,30 +92,6 @@ in
   dconf.settings = {
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
-    };
-  };
-
-  services = {
-    hypridle = {
-      enable = true;
-      settings = {
-        general = {
-          after_sleep_cmd = "hyprctl dispatch dpms on";
-          ignore_dbus_inhibit = false;
-          lock_cmd = "hyprlock";
-        };
-        listener = [
-          {
-            timeout = 900;
-            on-timeout = "hyprlock --immediate";
-          }
-          {
-            timeout = 1200;
-            on-timeout = "hyprctl dispatch dpms off";
-            on-resume = "hyprctl dispatch dpms on";
-          }
-        ];
-      };
     };
   };
 

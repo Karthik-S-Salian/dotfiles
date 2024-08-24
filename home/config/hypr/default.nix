@@ -4,6 +4,7 @@
   imports = [
     ./hyprland-env.nix
     ./hyprlock.nix
+    ./hypridle.nix
   ];
 
   home.packages = with pkgs; [
@@ -36,18 +37,9 @@
         monitor=eDP-1,1920x1080@144,0x0,1  #DP-1,1920x1080@144,0x0,1 
 
         #env
-        env = XCURSOR_SIZE,20
-        env = HYPRCURSOR_SIZE,20
-        env = HYPRCURSOR_THEME,Bibata-Modern-Classic
-        env = HYPRSHOT_DIR, Pictures/screenshots
-
-        #some may be redundent need to be removed
-        env = GDK_BACKEND, wayland, x11
-        env = CLUTTER_BACKEND, wayland
-        env = QT_QPA_PLATFORM,wayland;xcb
-        env = QT_WAYLAND_DISABLE_WINDOWDECORATION, 1
-        env = QT_AUTO_SCREEN_SCALE_FACTOR, 1
-        env = SDL_VIDEODRIVER, x11
+        # env = XCURSOR_SIZE,20
+        # env = HYPRCURSOR_SIZE,20
+        # env = HYPRCURSOR_THEME,Bibata-Modern-Classic
 
         exec-once = hyprlock --immediate
 
@@ -69,10 +61,8 @@
         # Autostart
         
         exec-once = wl-paste  --watch cliphist store
-        #need to be changed
-        #exec-once=bash ~/.config/hypr/start.sh
 
-        #exec-once = hyprctl setcursor Bibata-Modern-Classic 24
+        exec-once = hyprctl setcursor Bibata-Modern-Classic 24
 
         exec-once = pkill -q swww;sleep .5 && swww-daemon --format xrgb
         exec-once = pkill -q waybar;sleep .5 && waybar
@@ -105,8 +95,8 @@
             rounding = 10
 
             # Change transparency of focused and unfocused windows
-            active_opacity = .96
-            inactive_opacity = 0.9
+            active_opacity = .98
+            inactive_opacity = 0.94
 
             drop_shadow = true
             shadow_range = 4
@@ -268,8 +258,8 @@
         bind = ,XF86AudioPause, exec, playerctl play-pause
         bind = ,XF86AudioNext, exec, playerctl next
         bind = ,XF86AudioPrev, exec, playerctl previous
-        bind = ,XF86MonBrightnessDown,exec,brightnessctl set 5%-
-        bind = ,XF86MonBrightnessUp,exec,brightnessctl set +5%
+        bind = ,XF86MonBrightnessDown,exec,brightnessctl set 3%-
+        bind = ,XF86MonBrightnessUp,exec,brightnessctl set +3%
 
         #Screenshot
         bind = $mainMod, PRINT, exec, hyprshot -m window
@@ -295,25 +285,25 @@
     '';
   };
 
-  home.file.".config/hypr/colors".text = ''
-    $background = rgba(1d192bee)
-    $foreground = rgba(c3dde7ee)
+  # home.file.".config/hypr/colors".text = ''
+  #   $background = rgba(1d192bee)
+  #   $foreground = rgba(c3dde7ee)
 
-    $color0 = rgba(1d192bee)
-    $color1 = rgba(465EA7ee)
-    $color2 = rgba(5A89B6ee)
-    $color3 = rgba(6296CAee)
-    $color4 = rgba(73B3D4ee)
-    $color5 = rgba(7BC7DDee)
-    $color6 = rgba(9CB4E3ee)
-    $color7 = rgba(c3dde7ee)
-    $color8 = rgba(889aa1ee)
-    $color9 = rgba(465EA7ee)
-    $color10 = rgba(5A89B6ee)
-    $color11 = rgba(6296CAee)
-    $color12 = rgba(73B3D4ee)
-    $color13 = rgba(7BC7DDee)
-    $color14 = rgba(9CB4E3ee)
-    $color15 = rgba(c3dde7ee)
-  '';
+  #   $color0 = rgba(1d192bee)
+  #   $color1 = rgba(465EA7ee)
+  #   $color2 = rgba(5A89B6ee)
+  #   $color3 = rgba(6296CAee)
+  #   $color4 = rgba(73B3D4ee)
+  #   $color5 = rgba(7BC7DDee)
+  #   $color6 = rgba(9CB4E3ee)
+  #   $color7 = rgba(c3dde7ee)
+  #   $color8 = rgba(889aa1ee)
+  #   $color9 = rgba(465EA7ee)
+  #   $color10 = rgba(5A89B6ee)
+  #   $color11 = rgba(6296CAee)
+  #   $color12 = rgba(73B3D4ee)
+  #   $color13 = rgba(7BC7DDee)
+  #   $color14 = rgba(9CB4E3ee)
+  #   $color15 = rgba(c3dde7ee)
+  # '';
 }

@@ -1,7 +1,27 @@
 /* ----------- 💫 https://github.com/JaKooLit 💫 -------- */
-/* swaync colors - wallust from waybar.css */
 
-@import '../wallust/color.css';
+/* @import '../wallust/color.css'; */
+
+@define-color foreground #DED9D0;
+@define-color background rgba(3,4,5,0.25);
+@define-color cursor #DED9D0;
+
+@define-color color0 #030405;
+@define-color color1 #5C2C1F;
+@define-color color2 #3C4340;
+@define-color color3 #1D5C5F;
+@define-color color4 #235D5F;
+@define-color color5 #5D695D;
+@define-color color6 #7A6E5B;
+@define-color color7 #C8C1B4;
+@define-color color8 #8C877E;
+@define-color color9 #7B3A2A;
+@define-color color10 #505956;
+@define-color color11 #277B7F;
+@define-color color12 #2F7C7F;
+@define-color color13 #7C8C7C;
+@define-color color14 #A2937A;
+@define-color color15 #C8C1B4;
 
 @define-color noti-border-color @color12;
 @define-color noti-bg rgba(0, 0, 0, 0.8);
@@ -201,7 +221,7 @@
 
 .widget-title>button:hover {
     background: #f7768e;
-    color: @noti-border-color;
+    color: #000000;
 }
 
 .widget-dnd {

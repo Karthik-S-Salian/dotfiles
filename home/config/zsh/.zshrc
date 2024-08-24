@@ -39,7 +39,7 @@ zinit cdreplay -q
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Keybindings
-# bindkey -e
+bindkey -e
 bindkey '\e[C' autosuggest-accept
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward

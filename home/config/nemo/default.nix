@@ -2,8 +2,8 @@
 {
 
   home.packages = with pkgs; [
-    cinnamon.nemo
-    # cinnamon.nemo-fileroller
+    nemo
+    #nemo-fileroller
   ];
 
   home.file.".local/share/nemo/actions" = {

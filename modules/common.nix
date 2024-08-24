@@ -62,7 +62,6 @@
     vscode
 
     firefox
-    nemo
     vlc
     p7zip
     viewnior
