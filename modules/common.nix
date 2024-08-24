@@ -75,6 +75,8 @@
     nwg-look
 
     webcord
+
+    inputs.zen-browser.packages."${system}".specific
   ];
 
   programs.hyprland = {
