@@ -2,7 +2,6 @@
 
 {
   imports = [
-    ./hyprland-env.nix
     ./hyprlock.nix
     ./hypridle.nix
   ];

@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./env.nix
     ./start.nix
     ./fonts.nix
     inputs.home-manager.nixosModules.default
@@ -34,6 +35,8 @@
   };
 
   programs.zsh.enable = true;
+
+  programs.noisetorch.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -87,11 +90,6 @@
 
   security.pam.services.hyprlock = { };
 
-  environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
-    #WLR_NO_HARDWARE_CURSORS = "1";
-  };
-
   home-manager.backupFileExtension = "bak";
 
   xdg.portal = {
@@ -143,8 +141,6 @@
 
     power-profiles-daemon.enable = true;
 
-    gnome.gnome-keyring.enable = true;
-
     fstrim.enable = true;
   };
 
@@ -154,6 +150,11 @@
   #   platformTheme = "gnome";
   # };
 
+  #keyring
+  # services.gnome.gnome-keyring.enable = true;
+  # programs.seahorse.enable = true; # enable the graphical frontend
+  # environment.systemPackages = [ pkgs.libsecret ]; # libsecret api needed
+  # security.pam.services.greetd.enableGnomeKeyring = true; # load gnome-keyring at startup
 
   nix = {
     settings = {
