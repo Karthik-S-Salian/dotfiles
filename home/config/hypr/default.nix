@@ -196,7 +196,7 @@
         bind = $mainMod, P, pseudo, # dwindle
         bind = $mainMod, J, togglesplit, # dwindle
 
-        #bind = $mainMod, S, exec, rofi_search # Google search from Rofi
+        #bind = $mainMod, ?, exec, rofi_search # Google search from Rofi
         bind = $mainMod, E, exec, $emojipicker
         bind = $mainMod, C, exec, $calculator
 
