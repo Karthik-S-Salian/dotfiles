@@ -5,6 +5,7 @@
     ./env.nix
     ./start.nix
     ./fonts.nix
+    ./sound.nix
     inputs.home-manager.nixosModules.default
   ];
 
@@ -35,8 +36,6 @@
   };
 
   programs.zsh.enable = true;
-
-  programs.noisetorch.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -112,16 +111,6 @@
   services.blueman.enable = true;
 
   hardware.graphics.enable = true;
-
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
-    wireplumber.enable = true;
-  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
