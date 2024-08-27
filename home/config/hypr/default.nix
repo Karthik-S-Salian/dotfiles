@@ -145,6 +145,7 @@
         misc { 
             force_default_wallpaper = -1 # Set to 0 or 1 to disable the anime mascot wallpapers
             disable_hyprland_logo = false # If true disables the random hyprland logo / anime girl background. :(
+            focus_on_activate = true
         }
 
       # layout and input
@@ -196,7 +197,7 @@
         bind = $mainMod, P, pseudo, # dwindle
         bind = $mainMod, J, togglesplit, # dwindle
 
-        #bind = $mainMod, ?, exec, rofi_search # Google search from Rofi
+        bind = $mainMod, A, exec, rofi_search # Google search from Rofi
         bind = $mainMod, E, exec, $emojipicker
         bind = $mainMod, C, exec, $calculator
 
@@ -280,7 +281,7 @@
 
         windowrule = float, pavucontrol|blueman-manager
         windowrule=size 600 500,^(pavucontrol)$
-        
+
     '';
   };
 
