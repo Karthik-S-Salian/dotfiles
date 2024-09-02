@@ -14,10 +14,6 @@
       ../../modules/hardware-acceleration.nix
     ];
 
-  # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
   networking.hostName = "nixos"; # Define your hostname.
 
   services.xserver.videoDrivers = [ "nvidia" ];
@@ -41,8 +37,6 @@
     gimp
     ffmpeg
     libreoffice
-    # nodePackages.nodejs
-    # nodePackages.pnpm
     (python3.withPackages (ps: with ps; [
       numpy
       opencv4

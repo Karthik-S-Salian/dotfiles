@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./boot.nix
     ./env.nix
     ./start.nix
     ./fonts.nix
@@ -76,8 +77,6 @@
     nwg-look
 
     webcord
-
-    inputs.zen-browser.packages."${system}".specific
   ];
 
   programs.hyprland = {

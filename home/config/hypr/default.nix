@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
   imports = [
@@ -21,16 +21,17 @@
     brightnessctl
     playerctl
     killall
-    # wlogout
-    # hyprcursor
     xwaylandvideobridge
     hyprshot
   ];
 
-  #test later systemd.user.targets.hyprland-session.Unit.Wants = [ "xdg-desktop-autostart.target" ];
   wayland.windowManager.hyprland = {
     enable = true;
     systemd.enable = true;
+    plugins = [
+      pkgs.hyprlandPlugins.hyprexpo
+    ];
+
     extraConfig = ''
         # Monitor
         monitor=eDP-1,1920x1080@144,0x0,1  #DP-1,1920x1080@144,0x0,1 
@@ -281,6 +282,24 @@
 
         windowrule = float, pavucontrol|blueman-manager
         windowrule=size 600 500,^(pavucontrol)$
+
+
+      bind = SUPER, grave, hyprexpo:expo, toggle # can be: toggle, off/disable or on/enable
+
+      plugin {
+          hyprexpo {
+              columns = 3
+              gap_size = 5
+              bg_col = rgb(111111)
+              workspace_method = first 1 # [center/first] [workspace] e.g. first 1 or center m+1
+
+              enable_gesture = true
+              gesture_fingers = 3  # 3 or 4
+              gesture_distance = 300 # how far is the "max"
+              gesture_positive = true # positive = swipe down. Negative = swipe up.
+          }
+      }
+
 
     '';
   };

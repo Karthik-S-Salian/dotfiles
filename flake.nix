@@ -4,9 +4,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    # REMOVE THIS ONCE THERE IS OFFICIAL SUPPORT
-    zen-browser.url = "github:MarceColl/zen-browser-flake";
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";

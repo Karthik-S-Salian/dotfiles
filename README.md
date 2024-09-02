@@ -1,5 +1,7 @@
 # ❄️ NixOS dotfiles
 
+🚧 Work In Progress 🚧
+
 Hey there !
 Here is my current NixOS configuration.
 
