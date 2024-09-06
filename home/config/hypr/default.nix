@@ -249,8 +249,13 @@
 
         bind = ALT,Tab,cyclenext
         bind = ALT,Tab,bringactivetotop
-        bind = $mainMod, TAB, workspace, e+1
-        #bind = $mainMod,Tab,bringactivetotop,
+        # bind = $mainMod, TAB, workspace, e+1
+        #bind = $mainMod,Tab,bringactivetotop
+
+        binds {
+          allow_workspace_cycles = true
+        }
+        bind = SUPER, Tab, workspace, previous
 
         bind = ,XF86AudioRaiseVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
         bind = ,XF86AudioLowerVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-

@@ -26,6 +26,13 @@
           inputs.home-manager.nixosModules.default
         ];
       };
+      minimalIso = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./hosts/minimal/configuration.nix
+          inputs.home-manager.nixosModules.default
+        ];
+      };
     };
   };
 }
