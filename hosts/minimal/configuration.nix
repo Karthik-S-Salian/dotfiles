@@ -7,11 +7,11 @@
 {
   imports =
     [
+      "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
       ../../modules/env.nix
       ../../modules/start.nix
-      ../../modules/fonts.nix
+      # ../../modules/fonts.nix
       ../../modules/sound.nix
-      "${modulesPath}/installer/cd-dvd/installation-cd-minimal.nix"
       inputs.home-manager.nixosModules.default
     ];
 
@@ -36,7 +36,7 @@
   };
 
   networking.networkmanager.enable = true;
-  networking.wireless.enable = false; 
+  networking.wireless.enable = false;
 
   networking.hostName = "nixos"; # Define your hostname.
 
@@ -46,8 +46,7 @@
     description = "Karthik S Salian";
     shell = pkgs.zsh;
     extraGroups = [ "networkmanager" "wheel" "input" ];
-    packages = with pkgs; [
-    ];
+    password = "testiso";
   };
 
   programs.zsh.enable = true;
@@ -68,8 +67,6 @@
   programs.file-roller.enable = true;
 
   security.pam.services.hyprlock = { };
-
-  home-manager.backupFileExtension = "bak";
 
   xdg.portal = {
     enable = true;
@@ -125,15 +122,12 @@
     evince
     cosmic-edit
 
-    nixpkgs-fmt #for vscode nix formatter
-
-    nwg-look
-
     google-chrome
     nodePackages.nodejs
     bun
-    libreoffice
   ];
+
+  # fonts.enableDefaultPackages = true;
 
   system.stateVersion = "24.05";
 }
