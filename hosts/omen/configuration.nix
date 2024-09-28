@@ -23,7 +23,7 @@
     isNormalUser = true;
     description = "Karthik S Salian";
     shell = pkgs.zsh;
-    extraGroups = [ "networkmanager" "wheel" "input" ];
+    extraGroups = [ "networkmanager" "wheel" "input" "docker"];
     packages = with pkgs; [
     ];
   };
@@ -74,6 +74,17 @@
       acceleration = "cuda";
     };
   };
+
+  # programs.wayfire = {
+  #   enable = true;
+  #   plugins = with pkgs.wayfirePlugins; [
+  #     wcm
+  #     wf-shell
+  #     wayfire-plugins-extra
+  #   ];
+  # };
+  
+  programs.nix-ld.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

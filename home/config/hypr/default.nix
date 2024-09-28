@@ -147,7 +147,11 @@
             force_default_wallpaper = -1 # Set to 0 or 1 to disable the anime mascot wallpapers
             disable_hyprland_logo = false # If true disables the random hyprland logo / anime girl background. :(
             focus_on_activate = true
+            mouse_move_enables_dpms = true #prevents accidental wake up
+            key_press_enables_dpms = false
         }
+
+        
 
       # layout and input
 
@@ -185,6 +189,8 @@
 
         ### KEYBINDINGSS ###
         $mainMod = SUPER
+
+        bind = $mainMod, L, exec , hyprctl dispatch dpms off
 
         bindr= $mainMod,Super_L, exec,$menu
         bind = $mainMod, RETURN, exec, $terminal
@@ -249,13 +255,14 @@
 
         bind = ALT,Tab,cyclenext
         bind = ALT,Tab,bringactivetotop
-        # bind = $mainMod, TAB, workspace, e+1
+        bind = $mainMod, TAB, workspace, e+1
         #bind = $mainMod,Tab,bringactivetotop
+        #bind = SUPER, Tab, workspace, previous
 
         binds {
           allow_workspace_cycles = true
         }
-        bind = SUPER, Tab, workspace, previous
+        
 
         bind = ,XF86AudioRaiseVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
         bind = ,XF86AudioLowerVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
