@@ -68,11 +68,12 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls -a --color $realpath'
 # Aliases
 alias ls='ls --color'
 alias lsa='ls -a'
-# alias vim='nvim'
 alias c='clear'
 alias vsd='code ~/dotfiles && exit'
-
-
+alias pptx2pdf='soffice --headless --convert-to pdf *.pptx'
+alias docx2pdf='soffice --headless --convert-to pdf *.docx'
+alias ndz='nix develop --command zsh'
+alias vsc='code . && exit'
 
 # Shell integrations
 eval "$(fzf --zsh)"

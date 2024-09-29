@@ -10,7 +10,7 @@
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ../../modules/common.nix
-      ../../modules/game.nix
+      # ../../modules/game.nix
       ../../modules/hardware-acceleration.nix
     ];
 
@@ -34,6 +34,7 @@
   environment.systemPackages = with pkgs; [
     google-chrome
     bun
+    nodejs
     gimp
     ffmpeg
     libreoffice
