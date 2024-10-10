@@ -64,7 +64,8 @@
     zoxide
     vscode
 
-    firefox
+    firefoxpwa
+
     vlc
     p7zip
     viewnior
@@ -82,6 +83,12 @@
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
+  };
+
+  programs.firefox = {
+    enable = true;
+    package = pkgs.firefox;
+    nativeMessagingHosts.packages = [ pkgs.firefoxpwa ];
   };
 
   programs.file-roller.enable = true;
