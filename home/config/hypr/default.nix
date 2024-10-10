@@ -256,13 +256,13 @@
         bind = ALT,Tab,cyclenext
         bind = ALT,Tab,bringactivetotop
         bind = $mainMod, TAB, workspace, e+1
-        #bind = $mainMod,Tab,bringactivetotop
-        #bind = SUPER, Tab, workspace, previous
+        bind = $mainMod, grave, workspace, previous
+        bind = $mainMod, Escape, workspace, empty
+        bind = $mainMod, D, hyprexpo:expo, toggle # can be: toggle, off/disable or on/enable
 
         binds {
           allow_workspace_cycles = true
         }
-        
 
         bind = ,XF86AudioRaiseVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
         bind = ,XF86AudioLowerVolume,exec,wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
@@ -294,9 +294,6 @@
 
         windowrule = float, pavucontrol|blueman-manager
         windowrule=size 600 500,^(pavucontrol)$
-
-
-      bind = SUPER, grave, hyprexpo:expo, toggle # can be: toggle, off/disable or on/enable
 
       plugin {
           hyprexpo {
