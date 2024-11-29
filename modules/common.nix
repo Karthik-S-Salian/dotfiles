@@ -10,6 +10,8 @@
     inputs.home-manager.nixosModules.default
   ];
 
+  time.hardwareClockInLocalTime = true;
+
   # Enable networking
   networking.networkmanager.enable = true;
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.

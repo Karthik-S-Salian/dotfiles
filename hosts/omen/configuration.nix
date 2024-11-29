@@ -29,6 +29,17 @@
   };
 
 
+  services.postgresql = {
+    enable = true;
+    port = 5432;
+    # ensureDatabases = [ "mydatabase" ];
+    authentication = pkgs.lib.mkOverride 10 ''
+      #type database  DBuser  auth-method
+      local all       all     trust
+    '';
+  };
+
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -39,9 +50,10 @@
     ffmpeg
     libreoffice
     (python3.withPackages (ps: with ps; [
-      numpy
-      opencv4
       jupyter
+      pandas
+      scikit-learn
+      openpyxl
     ]))
   ];
 

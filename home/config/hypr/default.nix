@@ -30,6 +30,7 @@
     systemd.enable = true;
     plugins = [
       pkgs.hyprlandPlugins.hyprexpo
+      pkgs.hyprlandPlugins.hyprspace
     ];
 
     extraConfig = ''
@@ -145,7 +146,7 @@
         # https://wiki.hyprland.org/Configuring/Variables/#misc
         misc { 
             force_default_wallpaper = -1 # Set to 0 or 1 to disable the anime mascot wallpapers
-            disable_hyprland_logo = false # If true disables the random hyprland logo / anime girl background. :(
+            disable_hyprland_logo = true # If true disables the random hyprland logo / anime girl background. :(
             focus_on_activate = true
             mouse_move_enables_dpms = true #prevents accidental wake up
             key_press_enables_dpms = false
@@ -237,6 +238,7 @@
         bind = $mainMod SHIFT, 8, movetoworkspace, 8
         bind = $mainMod SHIFT, 9, movetoworkspace, 9
         bind = $mainMod SHIFT, 0, movetoworkspace, 10
+        bind = $mainMod SHIFT, Escape, movetoworkspace, empty
 
         bind = $mainMod SHIFT,right,workspace,e+1
         bind = $mainMod SHIFT,left,workspace,e-1
@@ -258,7 +260,9 @@
         bind = $mainMod, TAB, workspace, e+1
         bind = $mainMod, grave, workspace, previous
         bind = $mainMod, Escape, workspace, empty
-        bind = $mainMod, D, hyprexpo:expo, toggle # can be: toggle, off/disable or on/enable
+        # bind = $mainMod, D, hyprexpo:expo, toggle # can be: toggle, off/disable or on/enable
+
+        bind = $mainMod, D, overview:toggle
 
         binds {
           allow_workspace_cycles = true
